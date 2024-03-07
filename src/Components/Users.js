@@ -115,7 +115,7 @@ function Users() {
                     },
                   };
                   axios.post(
-                    "http://localhost:5000/chat/",
+                    "https://chatappserver-28ck.onrender.com/chat/",
                     {
                       userId: user._id,
                     },
