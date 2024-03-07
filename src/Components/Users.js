@@ -37,7 +37,7 @@ function Users() {
         Authorization: `Bearer ${userData.data.token}`,
       },
     };
-    axios.get("http://localhost:5000/user/fetchUsers", config).then((data) => {
+    axios.get("https://chatappserver-28ck.onrender.com/user/fetchUsers", config).then((data) => {
     //  console.log("UData refreshed in Users panel ");
       setUsers(data.data);
       setUsers1(data.data);

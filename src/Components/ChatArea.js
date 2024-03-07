@@ -11,7 +11,7 @@ import axios from "axios";
 import { myContext } from "./MainContainer";
 import { io } from "socket.io-client";
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://chatappserver-28ck.onrender.com"
 
 var socket, chat;
 function ChatArea() {
@@ -40,7 +40,7 @@ function ChatArea() {
     };
     axios
       .post(
-        "http://localhost:5000/message/",
+        "https://chatappserver-28ck.onrender.com/message/",
         {
           content: messageContent,
           chatId: chat_id,
@@ -88,7 +88,7 @@ useEffect(() => {
       },
     };
     axios
-      .get("http://localhost:5000/message/" + chat_id, config)
+      .get("https://chatappserver-28ck.onrender.com/message/" + chat_id, config)
       .then(({ data }) => {
         setAllMessages(data);
         setloaded(true);

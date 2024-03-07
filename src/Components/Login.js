@@ -30,7 +30,7 @@ function Login() {
         },
       };
 
-      const response = await axios.post("http://localhost:5000/user/login/", data, config);
+      const response = await axios.post("https://chatappserver-28ck.onrender.com/user/login/", data, config);
       console.log("Login : ", response);
       setLogInStatus({ msg: "Success", key: Math.random() });
       navigate("/app/welcome");
@@ -55,7 +55,7 @@ function Login() {
       };
 
       const response = await axios.post(
-        "http://localhost:5000/user/register/",
+        "https://chatappserver-28ck.onrender.com/user/register/",
         data,
         config
       );
