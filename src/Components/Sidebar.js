@@ -44,7 +44,7 @@ function Sidebar() {
     axios.get("https://chatappserver-28ck.onrender.com/chat/", config).then((response) => {
       console.log("Data refresh in sidebar ", response.data);
       setConversations(response.data);
-      // setRefresh(!refresh);
+      setRefresh(!refresh);
     });
   }, []);
 
