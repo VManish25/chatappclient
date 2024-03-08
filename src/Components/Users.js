@@ -42,7 +42,7 @@ function Users() {
       setUsers(data.data);
       setUsers1(data.data);
 
-      // setRefresh(!refresh);
+       setRefresh(!refresh);
     });
   }, []);
 

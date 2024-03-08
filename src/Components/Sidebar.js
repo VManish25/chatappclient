@@ -19,8 +19,8 @@ function Sidebar() {
   const [users, setUsers] = useState([]);
   const [users1, setUsers1] = useState([]);
   const lightTheme = useSelector((state) => state.themeKey);
-  // const refresh = useSelector((state) => state.refreshKey);
-  const { refresh, setRefresh } = useContext(myContext);
+   const refresh = useSelector((state) => state.refreshKey);
+ // const { refresh, setRefresh } = useContext(myContext);
   console.log("Context API : refresh : ", refresh);
   const [conversations, setConversations] = useState([]);
    console.log("Conversations of Sidebar : ", conversations);
@@ -44,9 +44,11 @@ function Sidebar() {
     axios.get("https://chatappserver-28ck.onrender.com/chat/", config).then((response) => {
       console.log("Data refresh in sidebar ", response.data);
       setConversations(response.data);
-      setRefresh(!refresh);
+     // dispatch(refreshSidebarFun());
+
+     // setRefresh(!refresh);
     });
-  }, []);
+  }, [refresh]);
 
   
  const handleSearch = (e)=>{
@@ -117,7 +119,7 @@ function Sidebar() {
                 onClick={() => {
                   console.log("Refresh fired from sidebar");
                    dispatch(refreshSidebarFun());
-                  setRefresh(!refresh);
+                 // setRefresh(!refresh);
                 }}
               >
                 <div

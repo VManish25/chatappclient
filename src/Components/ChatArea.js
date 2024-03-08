@@ -10,6 +10,8 @@ import Skeleton from "@mui/material/Skeleton";
 import axios from "axios";
 import { myContext } from "./MainContainer";
 import { io } from "socket.io-client";
+import { refreshSidebarFun } from '../Features/refreshSidebar';
+
 
 const ENDPOINT = "https://chatappserver-28ck.onrender.com"
 
@@ -18,6 +20,8 @@ function ChatArea() {
   const lightTheme = useSelector((state) => state.themeKey);
   const [messageContent, setMessageContent] = useState("");
   const messagesEndRef = useRef(null);
+  const dispatch = useDispatch();
+  const refresh = useSelector((state) => state.refreshKey);
   const dyParams = useParams();
   const [chat_id, chat_user] = dyParams._id.split("&");
   // console.log(chat_id, chat_user);
@@ -26,7 +30,7 @@ function ChatArea() {
   const [allMessagesCopy, setAllMessagesCopy] = useState([]);
    console.log("Chat area id : ", chat_id._id);
   // const refresh = useSelector((state) => state.refreshKey);
-  const { refresh, setRefresh } = useContext(myContext);
+//  const { refresh, setRefresh } = useContext(myContext);
   const [loaded, setloaded] = useState(false);
   const [socketConnectionStatus, setSocketConnectionStatus] = useState(false);
   
@@ -179,7 +183,8 @@ useEffect(() => {
                  console.log(event);
                 sendMessage();
                 setMessageContent("");
-                setRefresh(!refresh);
+                dispatch(refreshSidebarFun());
+               // setRefresh(!refresh);
               }
             }}
           />
@@ -187,8 +192,10 @@ useEffect(() => {
             className={"icon" + (lightTheme ? "" : " dark")}
             onClick={() => {
               sendMessage();
-              setRefresh(!refresh);
+              dispatch(refreshSidebarFun());
+             // setRefresh(!refresh);
             }}
+
           >
             <SendIcon />
           </IconButton>
