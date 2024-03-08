@@ -3,7 +3,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { IconButton } from '@mui/material';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import NightlightIcon from '@mui/icons-material/Nightlight';
-import SearchIcon from '@mui/icons-material/Search';
 import "./myStyles.css";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { useNavigate } from 'react-router-dom';

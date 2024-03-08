@@ -96,7 +96,7 @@ useEffect(() => {
          console.log("Data from Acess Chat API ", data); 
       });
       setAllMessagesCopy(allMessages);
-  }, [chat_id]);
+    },[chat_id]);
 
   if (!loaded) {
     return (
